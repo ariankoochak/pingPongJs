@@ -2,6 +2,7 @@ body{
     background-color: black;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #left-bilbilak{
@@ -10,6 +11,7 @@ body{
     width: 30px;
     height: 200px;
     margin-left: 30px;
+    border-radius: 100px;
 }
 
 #right-bilbilak{
@@ -19,4 +21,20 @@ body{
     width: 30px;
     height: 200px;
     margin-right: 30px;
+    border-radius: 100px;
+}
+
+#ball{
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#ball-container{
+    float: right;
+    margin: 0 auto;
+    display: inline-block;
+    width: calc(100% - 120px);
+    height: 100vh;
 }
