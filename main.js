@@ -26,20 +26,27 @@ addEventListener("keydown", function (e) {
 
 function moveBall(){
     const ballPosition = ball.getBoundingClientRect();
-    console.log(ballPosition.x, "+", changeX);
-    console.log(ballPosition.x + changeX);
+    const positionLeft = leftBilBilak.getBoundingClientRect();
+    const positionRight = rightBilBilak.getBoundingClientRect();
     ball.style.transform = `translate(${ballPosition.x + changeX}px,${ballPosition.y + changeY}px)`;
+    // && (ballPosition.y > positionLeft.y && ballPosition.y < positionLeft.y + 200)
+    if(Math.abs(ballPosition.x - positionLeft.x) < 90 && (ballPosition.y > positionLeft.y && ballPosition.y < positionLeft.y + 200)){
+        changeX = -10;
+    }
+    if(Math.abs(ballPosition.x - positionRight.x) < 130 && (ballPosition.y > positionRight.y && ballPosition.y < positionRight.y + 200)){
+        changeX = -100;
+    }
     if(ballPosition.y > screenHeight-100){
         changeY = -40;
     }
     if(ballPosition.x > screenWidth){
-        changeX = -100;
+        
     }
     if(ballPosition.y < 30){
         changeY = 40;
     }
     if(ballPosition.x < 10){
-        changeX = -10;
+        // changeX = -10;
     }
 }
 setInterval(moveBall,80)
