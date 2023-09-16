@@ -5,6 +5,7 @@ let changeX = -10;
 let changeY = 50;
 const screenHeight = innerHeight;
 const screenWidth = innerWidth;
+let sit = 'start-left';
 addEventListener("keydown", function (e) {
     const keyDown = e.key;
 
@@ -25,6 +26,18 @@ addEventListener("keydown", function (e) {
 });
 
 function moveBall(){
+    if (sit == 'start-left'){
+        ball.style.transform = `translate(300px,300px)`;
+        sit = 'ingame';
+        changeX = -10;
+        changeY = 40;
+    }
+    else if(sit == 'start-right'){
+        ball.style.transform = `translate(1300px,300px)`;
+        sit = "ingame";
+        changeX = -100;
+        changeY = -40;
+    }
     const ballPosition = ball.getBoundingClientRect();
     const positionLeft = leftBilBilak.getBoundingClientRect();
     const positionRight = rightBilBilak.getBoundingClientRect();
@@ -41,13 +54,13 @@ function moveBall(){
         changeY = -40;
     }
     if(ballPosition.x > screenWidth){
-        ball.style.transform = 'none';
+        sit = 'start-right';
     }
     if(ballPosition.y < 30){
         changeY = 40;
     }
     if(ballPosition.x < 10){
-        ball.style.transform = "none";
+        sit = 'start-left';
     }
 }
 setInterval(moveBall,80)
