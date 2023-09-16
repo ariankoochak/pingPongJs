@@ -54,3 +54,25 @@ span{
 #right-score{
     rotate: 90deg;
 }
+#result{
+    font-size: 200px;
+    color: white;
+    text-align: center;
+    margin-top: 30vh;
+    display: none;
+    font-weight: 700;
+}
+
+#new-game{
+    display: none;
+}
+
+#new-game-btn{
+    display: block;
+    margin: 0 auto;
+    padding: 10px 25px;
+    font-size: 30px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+}
