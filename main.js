@@ -1,11 +1,15 @@
 const leftBilBilak = document.getElementById("left-bilbilak");
 const rightBilBilak = document.getElementById("right-bilbilak");
 const ball = document.getElementById('ball')
+const rightScoreDOM = document.getElementById("right-score");
+const leftScoreDOM = document.getElementById("left-score");
 let changeX = -10;
 let changeY = 50;
 const screenHeight = innerHeight;
 const screenWidth = innerWidth;
 let sit = 'start-left';
+let leftScore = 0;
+let rightScore = 0;
 addEventListener("keydown", function (e) {
     const keyDown = e.key;
 
@@ -24,6 +28,9 @@ addEventListener("keydown", function (e) {
         rightBilBilak.style.transform = `translate(0,${positionRight.y + 25}px)`;
     }
 });
+
+rightBilBilak.style.transform = `translate(0,300px)`;
+leftBilBilak.style.transform = `translate(0,300px)`;
 
 function moveBall(){
     if (sit == 'start-left'){
@@ -55,12 +62,16 @@ function moveBall(){
     }
     if(ballPosition.x > screenWidth){
         sit = 'start-right';
+        leftScore++;
+        leftScoreDOM.innerText = leftScore
     }
     if(ballPosition.y < 30){
         changeY = 40;
     }
     if(ballPosition.x < 10){
         sit = 'start-left';
+        rightScore++;
+        rightScoreDOM.innerText = rightScore;
     }
 }
 setInterval(moveBall,80)
