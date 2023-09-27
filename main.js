@@ -126,3 +126,5 @@ newGameBtn.addEventListener("click", function () {
     leftBilBilak.style.transform = `translate(0,300px)`;
     isStop = false
 });
+
+console.log('dont use bilbilak');
