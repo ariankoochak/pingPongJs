@@ -127,4 +127,4 @@ newGameBtn.addEventListener("click", function () {
     isStop = false
 });
 
-console.log('dont use bilbilak');
+// console.log('dont use bilbilak');
